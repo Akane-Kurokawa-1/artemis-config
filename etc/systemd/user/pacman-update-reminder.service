@@ -1,0 +1,8 @@
+[Unit]
+Description=Pacman update reminder
+
+[Service]
+Type=oneshot
+ExecStart=zsh -c "if [ $$(date --date=$(grep -F \'[PACMAN] synchronizing package lists\' /var/log/pacman.log | tail -n1 | grep -oP \'\\d\\d\\d\\d.*\\d\') +%%s) -lt $$(date --date=\'last week\' +%%s) ]; then notify-send --wait -a \'Update reminder\' -i system-software-install -t 0 \'Please update\' \"Last updated: $$(date --date=$$(grep -F \'[PACMAN] synchronizing package lists\' /var/log/pacman.log | tail -n1 | grep -oP \'\\d\\d\\d\\d.*\\d\') )\";fi"
+
+

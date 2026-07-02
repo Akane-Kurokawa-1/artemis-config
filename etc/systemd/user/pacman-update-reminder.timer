@@ -1,0 +1,12 @@
+[Unit]
+Description=Pacman Update Reminder
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=12h
+Persistent=true
+# Use OnUnitActiveSec or OnCalendar. OnCalendar=daily is often simpler.
+
+[Install]
+WantedBy=timers.target
+
