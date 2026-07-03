@@ -19,7 +19,12 @@ depends=('zsh-autosuggestions'
   'flatpak'
   'libnotify'
   'breeze-icons'
-  'grep')
+  'grep'
+  'util-linux'
+  'nano'
+  'neovim'
+  'fastfetch'
+  'wl-clipboard')
 makedepends=('git')
 conflicts=('grml-zsh-config' 'manjaro-zsh-config')
 backup=('root/.zshrc')
@@ -52,4 +57,5 @@ package() {
   cd "$srcdir/$pkgname"
   cp -r etc "${pkgdir}"
   install -D -m644 LICENSE -t "${pkgdir}/usr/share/licenses/artemis-config/"
+  install -D -m755 install_chaur -t "${pkgdir}/usr/bin/"
 }
