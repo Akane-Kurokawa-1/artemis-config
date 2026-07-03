@@ -7,7 +7,7 @@ pkgver=0.26
 pkgrel=4
 pkgdesc="Zsh configuration for manjaro"
 arch=('any')
-#url=("https://github.com/Chrysostomus/manjaro-zsh-config")
+url="https://github.com/Akane-Kurokawa-1/artemis-config"
 license=('MIT')
 depends=('zsh-autosuggestions'
   'zsh-syntax-highlighting'
@@ -23,10 +23,11 @@ depends=('zsh-autosuggestions'
 makedepends=('git')
 conflicts=('grml-zsh-config' 'manjaro-zsh-config')
 backup=('root/.zshrc')
-_git_url=("https://github.com/Chrysostomus/manjaro-zsh-config")
-_commit=(1f9d0da2c8408de895156cb65d324636d656df1c)
-source=("git+${_git_url[0]}.git#commit=${_commit[0]}" "etc.tar.gz" LICENSE)
-sha256sums=('6d814d5b216b380c4894214e19788d1057e4e6c684d5e897b2ff66366b4ab291' SKIP '0e451386132170fc67359ad2fa8a0f91123cdedfcf300a1d0196cfa0a8a6bbfb')
+_git_url=("https://github.com/Chrysostomus/manjaro-zsh-config" "https://github.com/Akane-Kurokawa-1/artemis-config")
+_commit=(1f9d0da2c8408de895156cb65d324636d656df1c ccf4f9bd18c042fc3285e98ddb1e6fdefa585d4d)
+source=("git+${_git_url[0]}.git#commit=${_commit[0]}" "git+${_git_url[1]}.git#commit=${_commit[1]}")
+sha256sums=('6d814d5b216b380c4894214e19788d1057e4e6c684d5e897b2ff66366b4ab291'
+            'a956f194214ec448f6806b742f7087341af5c40ceaca0d992d74278948570d0e')
 
 prepare() {
   #mv "$srcdir/manjaro-zsh-config" "$srcdir/$pkgname"
@@ -48,7 +49,7 @@ package() {
   cp -r base16-shell "${pkgdir}/usr/share/zsh/scripts/"
   chmod a+x "${pkgdir}/usr/share/zsh/scripts/base16-shell/"*
   install -D -m644 LICENSE -t "${pkgdir}/usr/share/licenses/manjaro-zsh-config/"
-  cd "$srcdir"
+  cd "$srcdir/$pkgname"
   cp -r etc "${pkgdir}"
   install -D -m644 LICENSE -t "${pkgdir}/usr/share/licenses/artemis-config/"
 }
