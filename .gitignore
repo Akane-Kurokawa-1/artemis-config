@@ -2,3 +2,4 @@ pkg/
 src/
 *.pkg.tar.zst
 manjaro-zsh-config/
+artemis-config/
