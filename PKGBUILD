@@ -24,10 +24,10 @@ makedepends=('git')
 conflicts=('grml-zsh-config' 'manjaro-zsh-config')
 backup=('root/.zshrc')
 _git_url=("https://github.com/Chrysostomus/manjaro-zsh-config" "https://github.com/Akane-Kurokawa-1/artemis-config")
-_commit=(1f9d0da2c8408de895156cb65d324636d656df1c ccf4f9bd18c042fc3285e98ddb1e6fdefa585d4d)
+_commit=(1f9d0da2c8408de895156cb65d324636d656df1c 2ec2deffa98b8b3e4b2c35c37cd5c1d0c736e445)
 source=("git+${_git_url[0]}.git#commit=${_commit[0]}" "git+${_git_url[1]}.git#commit=${_commit[1]}")
 sha256sums=('6d814d5b216b380c4894214e19788d1057e4e6c684d5e897b2ff66366b4ab291'
-            'a956f194214ec448f6806b742f7087341af5c40ceaca0d992d74278948570d0e')
+            'd2833275bb0601b2c5fec53fb05dcafe5afe36e9a4123d9c1d21e73aa81487ce')
 
 prepare() {
   #mv "$srcdir/manjaro-zsh-config" "$srcdir/$pkgname"
