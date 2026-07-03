@@ -1,3 +1,3 @@
-# manjaro-zsh-config
+# artemis-config
 
-Default zsh-configuration for manjaro.
+my config, including manjaro-zsh-config
