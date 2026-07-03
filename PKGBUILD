@@ -25,8 +25,8 @@ conflicts=('grml-zsh-config' 'manjaro-zsh-config')
 backup=('root/.zshrc')
 _git_url=("https://github.com/Chrysostomus/manjaro-zsh-config")
 _commit=(1f9d0da2c8408de895156cb65d324636d656df1c)
-source=("git+${_git_url[0]}.git#commit=${_commit[0]}" "etc.tar.gz")
-sha256sums=('6d814d5b216b380c4894214e19788d1057e4e6c684d5e897b2ff66366b4ab291' SKIP)
+source=("git+${_git_url[0]}.git#commit=${_commit[0]}" "etc.tar.gz" LICENSE)
+sha256sums=('6d814d5b216b380c4894214e19788d1057e4e6c684d5e897b2ff66366b4ab291' SKIP '0e451386132170fc67359ad2fa8a0f91123cdedfcf300a1d0196cfa0a8a6bbfb')
 
 prepare() {
   #mv "$srcdir/manjaro-zsh-config" "$srcdir/$pkgname"
@@ -50,4 +50,5 @@ package() {
   install -D -m644 LICENSE -t "${pkgdir}/usr/share/licenses/manjaro-zsh-config/"
   cd "$srcdir"
   cp -r etc "${pkgdir}"
+  install -D -m644 LICENSE -t "${pkgdir}/usr/share/licenses/artemis-config/"
 }
