@@ -1,0 +1,15 @@
+post_install() {
+    cat <<EOF
+================================================
+DON'T USE THIS EXCEPT FOR SPECIFIC CIRCUMSTANCES
+================================================
+EOF
+    chsh -s /usr/bin/zsh root
+    if getent passwd 1000 > /dev/null; then
+        u=getent passwd 1000 | cut -d: -f1
+        h=getent passwd 1000 | cut -d: -f6
+        cp --preserve=links,mode -dRb /etc/skel $h
+        chown -R 1000:1000 $h
+        chsh -s /usr/bin/zsh 1000
+    fi
+}

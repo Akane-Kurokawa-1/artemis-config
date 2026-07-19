@@ -3,8 +3,8 @@
 # Contributor: Roman Perepelitsa <roman.perepelitsa@gmail.com>
 
 pkgname=artemis-config
-pkgver=0.26
-pkgrel=4
+pkgver=0.27
+pkgrel=1
 pkgdesc="Zsh configuration for manjaro"
 arch=('any')
 url="https://github.com/Akane-Kurokawa-1/artemis-config"
@@ -26,13 +26,14 @@ depends=('zsh-autosuggestions'
   'fastfetch'
   'wl-clipboard')
 makedepends=('git')
-conflicts=('grml-zsh-config' 'manjaro-zsh-config')
+conflicts=('grml-zsh-config' 'manjaro-zsh-config' 'cachyos-zsh-config')
 backup=('root/.zshrc')
 _git_url=("https://github.com/Chrysostomus/manjaro-zsh-config" "https://github.com/Akane-Kurokawa-1/artemis-config")
 _commit=(1f9d0da2c8408de895156cb65d324636d656df1c 0d711a490225b88b973ec0432a4cfb80c0646094)
 source=("git+${_git_url[0]}.git#commit=${_commit[0]}" "git+${_git_url[1]}.git#commit=${_commit[1]}")
 sha256sums=('6d814d5b216b380c4894214e19788d1057e4e6c684d5e897b2ff66366b4ab291'
             '501d0af0303fedf57fd5bec5627f74fc6b2f7a6ebe83dc8b60353bd9ac4bfb49')
+install=$pkgname.install
 
 prepare() {
   #mv "$srcdir/manjaro-zsh-config" "$srcdir/$pkgname"
